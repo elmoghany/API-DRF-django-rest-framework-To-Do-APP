@@ -4,4 +4,8 @@ services:
     build: .
     volumes:
       - .:/moghany_dir
-
+    ports:
+      - 8001:8000
+    image: todo_app:v1.0-django-docker-compose
+    container_name: todo_django_container
+    command: python manage.py runserver 0.0.0.0:8000
