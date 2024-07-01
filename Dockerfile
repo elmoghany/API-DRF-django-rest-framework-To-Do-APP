@@ -8,6 +8,6 @@ COPY todo_project/requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY todo_project .
 
 #CMD ["python","manage.py","runserver","0.0.0.0:8000","noreload"]
