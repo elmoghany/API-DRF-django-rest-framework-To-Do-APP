@@ -5,3 +5,4 @@ venv_todo
 __pycache__
 static
 media
+*.swp
