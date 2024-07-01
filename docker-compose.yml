@@ -1,0 +1,6 @@
+name: todo_app
+services:
+  todo_service:
+    build: .
+    volumes:
+      - .:/moghany_dir

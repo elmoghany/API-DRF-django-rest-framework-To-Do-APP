@@ -2,7 +2,7 @@ From python:3.12.4-slim
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /todo_project
+WORKDIR /moghany_dir
 
 COPY requirements.txt requirements.txt
 
