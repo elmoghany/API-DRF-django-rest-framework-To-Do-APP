@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /moghany_dir
 
-COPY requirements.txt requirements.txt
+COPY todo_project/requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
