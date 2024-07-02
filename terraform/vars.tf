@@ -21,11 +21,11 @@ variable "INSTANCE_TYPE" {
 }
 variable "KEY_NAME" {
   description = "name of the ssh key pair"
-  default = "moghany-todo-key"
+  default = "moghany-todo-keypair"
 }
 variable "PUB_KEY" {
-  default = "moghany-todo-keypair.pub"
+  default = "moghany-todo-keygen.pub"
 }
-variable "priv_KEY" {
-  default = "moghany-todo-keypair"
+variable "PRIV_KEY" {
+  default = "moghany-todo-keygen"
 }
