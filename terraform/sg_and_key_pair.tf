@@ -1,6 +1,6 @@
 resource "aws_key_pair" "todo_keypair" {
   key_name = var.KEY_NAME
-  public_key = file(../var.PUB_KEY)
+  public_key = file(var.PUB_KEY)
 }
 
 data "aws_vpc" "default_vpc" {
@@ -13,16 +13,7 @@ resource "aws_security_group" "todo_sg_tf" {
  vpc_id      = data.aws_vpc.default.id
 }
 
-resource "aws_security_group_rule" "allow_https" {
- type              = "ingress"
- description       = "HTTPS ingress"
- from_port         = 443
- to_port           = 443
- protocol          = "tcp"
- cidr_blocks       = ["0.0.0.0/0"]
- security_group_id = aws_security_group.todo_sg_tf.id
-}
-
+#egress
 resource "aws_security_group_rule" "allow_all" {
  type              = "ingress"
  description       = "allow all"
@@ -33,13 +24,25 @@ resource "aws_security_group_rule" "allow_all" {
  security_group_id = aws_security_group.todo_sg_tf.id
 }
 
+#ingress
+resource "aws_security_group_rule" "allow_https" {
+ type              = "ingress"
+ description       = "HTTPS ingress"
+ from_port         = 443
+ to_port           = 443
+ protocol          = "tcp"
+ cidr_blocks       = ["0.0.0.0/0"]
+ security_group_id = aws_security_group.todo_sg_tf.id
+}
+
 resource "aws_security_group_rule" "allow_ssh_from_vpc" {
  type              = "ingress"
  description       = "Allow SSH from VPC"
  from_port         = 22
  to_port           = 22
  protocol          = "tcp"
- cidr_blocks       = [data.aws_vpc.default.cidr_block]
+ cidr_blocks       = [data.aws_vpc.default_vpc.cidr_block]
+ #cidr_blocks       = [var.MYIP]
  security_group_id = aws_security_group.todo_sg_tf.id
 }
 

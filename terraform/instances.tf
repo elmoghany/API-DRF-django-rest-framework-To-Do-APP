@@ -33,7 +33,7 @@ resource "aws_instance" "todo-instance" {
 
   connection {
     user = var.USER
-    private_key = file(../var.PRIV_KEY)
+    private_key = file(var.PRIV_KEY)
     host = self.public_ip
   }
 }
