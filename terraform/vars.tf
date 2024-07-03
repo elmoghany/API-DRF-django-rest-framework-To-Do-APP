@@ -1,7 +1,7 @@
 #variable AWS_REGION {
 #  default = "us-east-1"
 #}
-variable AMI {
+variable "AMI" {
   default = "ami-0c55b159cbfafe1f0"
 }
 variable "PROJECT" {
@@ -27,7 +27,7 @@ variable "INSTANCE_TYPE" {
 }
 variable "KEY_NAME" {
   description = "name of the ssh key pair"
-  default = "moghany-todo-keypair"
+  default     = "moghany-todo-keypair"
 }
 variable "PUB_KEY" {
   default = "moghany-todo-keygen.pub"
