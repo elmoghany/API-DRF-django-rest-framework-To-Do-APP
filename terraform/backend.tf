@@ -7,12 +7,6 @@ terraform {
   }
 
   backend "s3" {
-    config {
-      bucket 	= "${var.S3_BUCKET}"
-      key	= "${var.S3_KEY}" 
-      region 	= "${var.REGION}"
-      shared_credentials_file = "./.env.tfvars"
-    }
   }
 }
 

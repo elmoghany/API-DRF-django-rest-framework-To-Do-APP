@@ -20,7 +20,7 @@ variable "S3_KEY" {
   default = "terraform/todo-list-v1.tfstate"
 }
 variable "PROFILE" {
-  default = "tf_admin"
+  default = "default"
 }
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
