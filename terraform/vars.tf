@@ -16,6 +16,12 @@ variable "USER" {
 variable "S3_BUCKET" {
   default = "moghany-django"
 }
+variable "S3_KEY" {
+  default = "terraform/todo-list-v1.tfstate"
+}
+variable "PROFILE" {
+  default = "tf_admin"
+}
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
 }
