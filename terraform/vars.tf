@@ -1,6 +1,6 @@
-#variable AWS_REGION {
-#  default = "us-east-1"
-#}
+variable AWS_REGION {
+  default = "us-east-1"
+}
 variable "AMI" {
   default = "ami-0c55b159cbfafe1f0"
 }
