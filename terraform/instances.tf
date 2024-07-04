@@ -34,6 +34,6 @@ resource "aws_instance" "todo-instance" {
     user        = var.USER
     private_key = file(var.PRIV_KEY)
     host        = self.public_ip
-    timeout     = "2m"
+    timeout     = "10m"
   }
 }
