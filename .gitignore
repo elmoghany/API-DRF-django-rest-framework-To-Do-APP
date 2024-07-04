@@ -2,10 +2,14 @@
 .idea
 venv_todo
 .env
+.env.tfvars
 .DS_Store
 __pycache__
 static
 media
 *.swp
 *.pub
-moghany-todo-keypair*
+moghany-todo-keygen.pub
+moghany-todo-keygen
+*/.terraform/*
+terraform/.terraform.lock.hcl
