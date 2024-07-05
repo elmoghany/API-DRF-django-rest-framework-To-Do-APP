@@ -33,6 +33,15 @@ resource "aws_security_group_rule" "allow_https" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.todo_sg_tf.id
 }
+resource "aws_security_group_rule" "allow_custom_port" {
+  type              = "ingress"
+  description       = "Custom port for Django"
+  from_port         = 8001
+  to_port           = 8001
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.todo_sg_tf.id
+}
 
 resource "aws_security_group_rule" "allow_http" {
   type              = "ingress"

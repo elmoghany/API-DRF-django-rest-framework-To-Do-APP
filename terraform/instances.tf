@@ -25,8 +25,8 @@ resource "aws_instance" "todo-instance" {
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
       "sudo chmod 666 /var/run/docker.sock",
-      "docker pull elmoghany/todo_app:v1.2-django-docker-compose",
-      "docker run -d -p 8001:8000 elmoghany/todo_app:v1.2-django-docker-compose"
+      "docker pull elmoghany/todo_app:v1.3-django-docker-compose",
+      "docker run -d -p 8001:8000 elmoghany/todo_app:v1.3-django-docker-compose"
     ]
   }
 
