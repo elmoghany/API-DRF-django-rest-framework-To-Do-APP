@@ -35,3 +35,6 @@ variable "PUB_KEY" {
 variable "PRIV_KEY" {
   default = "moghany-todo-keygen"
 }
+variable "MYIP" {
+  default = "105.197.212.121/32"
+}

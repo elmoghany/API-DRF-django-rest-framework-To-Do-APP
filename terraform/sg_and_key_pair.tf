@@ -14,9 +14,8 @@ resource "aws_security_group" "todo_sg_tf" {
 }
 
 #egress
-resource "aws_security_group_rule" "allow_all" {
-  type              = "ingress"
-  description       = "allow all"
+resource "aws_security_group_rule" "allow_all_outbound" {
+  type              = "egress"
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
@@ -50,8 +49,8 @@ resource "aws_security_group_rule" "allow_ssh_from_vpc" {
   from_port   = 22
   to_port     = 22
   protocol    = "tcp"
-  cidr_blocks = [data.aws_vpc.default_vpc.cidr_block]
-  #cidr_blocks       = [var.MYIP]
+  #cidr_blocks = [data.aws_vpc.default_vpc.cidr_block]
+  cidr_blocks       = [var.MYIP]
   security_group_id = aws_security_group.todo_sg_tf.id
 }
 

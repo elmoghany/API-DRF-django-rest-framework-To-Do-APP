@@ -24,6 +24,7 @@ resource "aws_instance" "todo-instance" {
       "sudo apt-get install -y docker.io",
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
+      "sudo chmod 666 /var/run/docker.sock",
       "docker pull elmoghany/todo_app:v1.1-django-docker-compose",
       "docker run -d -p 8001:8000 elmoghany/todo_app:v1.1-django-docker-compose"
     ]
