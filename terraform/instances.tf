@@ -12,7 +12,7 @@ resource "aws_instance" "todo-instance" {
   tags = {
     Project = var.PROJECT
     Prefix  = var.PREFIX
-    NAME    = "Todo-Django-DRF-Docker-TF-instance"
+    Name    = "Todo-Django-DRF-Docker-TF-instance"
   }
   provisioner "remote-exec" {
     inline = [
@@ -22,6 +22,10 @@ resource "aws_instance" "todo-instance" {
   provisioner "file" {
     source      = "../scripts/entrypoint.sh"
     destination = "/home/ubuntu/todo-project/scripts/entrypoint.sh"
+  }
+  provisioner "file" {
+    source      = "../docker-compose.yml"
+    destination = "/home/ubuntu/todo-project/scripts/docker-compose.yml"
   }
   provisioner "remote-exec" {
     inline = [

@@ -17,13 +17,13 @@ mkdir -p /home/ubuntu/todo-project
 cd /home/ubuntu/todo-project
 docker pull elmoghany/todo_app:v1.3-django-docker-compose
 
-echo "version: '3.8'
-services:
-  todo_service:
-    image: elmoghany/todo_app:v1.1-django-docker-compose
-    ports:
-      - '8001:8000'
-    container_name: todo_django_container
-" > docker-compose.yml
+#echo "version: '3.8'
+#services:
+#  todo_service:
+#    image: elmoghany/todo_app:v1.1-django-docker-compose
+#    ports:
+#      - '8001:8000'
+#    container_name: todo_django_container
+#" > docker-compose.yml
 
-docker compose up -d
+docker-compose -f scripts/docker-compose.yml up -d
