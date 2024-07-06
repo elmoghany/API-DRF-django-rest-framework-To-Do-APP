@@ -3,9 +3,9 @@ services:
   todo_service:
     build: .
     volumes:
-      - .:/moghany_dir
+      - /home/ubuntu/todo-project:/moghany_dir
     ports:
       - 8001:8000
-    image: elmoghany/todo_app:v1.1-django-docker-compose
+    image: elmoghany/todo_app:v1.4-django-docker-compose
     container_name: todo_django_container
-    command: python todo_project/manage.py runserver 0.0.0.0:8000
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]

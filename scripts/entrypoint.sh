@@ -15,7 +15,7 @@ sudo chmod 666 /var/run/docker.sock
 
 mkdir -p /home/ubuntu/todo-project
 cd /home/ubuntu/todo-project
-docker pull elmoghany/todo_app:v1.3-django-docker-compose
+docker pull elmoghany/todo_app:v1.4-django-docker-compose
 
 #echo "version: '3.8'
 #services:

@@ -11,9 +11,6 @@ RUN pip install -r requirements.txt
 
 COPY todo_project .
 
-COPY docker-compose.yml .
-COPY Dockerfile .
-
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 #COPY scripts .
