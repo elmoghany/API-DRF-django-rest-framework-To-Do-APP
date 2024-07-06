@@ -1,6 +1,5 @@
 #From python:3.12.4
 FROM python:3.12.4-slim-bullseye
-#FROM docker:27.0.3-dind-alpine3.20
 
 ENV PYTHONUNBUFFERED=1
 
