@@ -36,5 +36,5 @@ variable "PRIV_KEY" {
   default = "moghany-todo-keygen"
 }
 variable "MYIP" {
-  default = "105.197.143.166/32"
+  default = "102.189.168.54/32"
 }
