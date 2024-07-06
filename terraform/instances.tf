@@ -14,6 +14,11 @@ resource "aws_instance" "todo-instance" {
     Prefix  = var.PREFIX
     NAME    = "Todo-Django-DRF-Docker-TF-instance"
   }
+  provisioner "remote-exec" {
+    inline = [
+	"mkdir -p /home/ubuntu/todo-project/scripts"
+  	]
+  }
   provisioner "file" {
     source      = "../scripts/entrypoint.sh"
     destination = "/home/ubuntu/todo-project/scripts/entrypoint.sh"
