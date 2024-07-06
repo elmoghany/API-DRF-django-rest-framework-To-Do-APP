@@ -26,7 +26,7 @@ resource "aws_instance" "todo-instance" {
   provisioner "remote-exec" {
     inline = [
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
-	"source /home/ubuntu/todo-project/scripts/entrypoint.sh"
+	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh"
     ]
   }
 
