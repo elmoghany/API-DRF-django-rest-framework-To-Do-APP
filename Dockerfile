@@ -3,7 +3,7 @@ FROM python:3.12.4-slim-bullseye
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /home/todo-project
+WORKDIR /home/ubuntu/todo-project
 
 COPY requirements.txt .
 
