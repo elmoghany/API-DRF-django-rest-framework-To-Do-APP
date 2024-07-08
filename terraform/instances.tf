@@ -24,6 +24,10 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/scripts/entrypoint.sh"
   }
   provisioner "file" {
+    source      = "../.env"
+    destination = "/home/ubuntu/todo-project/.env"
+  }
+  provisioner "file" {
     source      = "../docker-compose.yml"
     destination = "/home/ubuntu/todo-project/scripts/docker-compose.yml"
   }

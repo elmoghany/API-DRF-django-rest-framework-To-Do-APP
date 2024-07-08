@@ -5,11 +5,14 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /home/todo-project
 
-COPY todo_project/requirements.txt .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY ./scripts ./scripts
+COPY ./nginx ./nginx
+COPY ./todo_project ./todo_project
+
 
 #CMD ["python", "todo_project/manage.py", "runserver", "0.0.0.0:8000"]
 
