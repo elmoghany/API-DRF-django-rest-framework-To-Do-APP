@@ -29,5 +29,3 @@ docker pull elmoghany/todo_app:v1.6-django-docker-compose
 #      - '8001:8000'
 #    container_name: todo_django_container
 #" > docker-compose.yml
-
-docker-compose -f scripts/docker-compose.yml up -d
