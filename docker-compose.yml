@@ -17,8 +17,8 @@ services:
     image: nginx:1.24-alpine3.17-slim
     ports:
       - "8001:80"
-    volumes:
-      - ./todo_project/ngin/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./todo_project/static/:/home/todo-project/todo_project/static/
+    #volumes:
+      #- /home/todo-project/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      #- /home/todo-project/todo_project/static/:/home/todo-project/todo_project/static/
     depends_on:
       - todo_service

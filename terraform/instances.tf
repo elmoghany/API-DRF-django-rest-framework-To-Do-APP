@@ -16,16 +16,21 @@ resource "aws_instance" "todo-instance" {
   }
   provisioner "remote-exec" {
     inline = [
-	"mkdir -p /home/ubuntu/todo-project/scripts"
+	"mkdir -p /home/todo-project/scripts",
+	"mkdir -p /home/todo-project/nginx"
   	]
   }
   provisioner "file" {
     source      = "../scripts/entrypoint.sh"
-    destination = "/home/ubuntu/todo-project/scripts/entrypoint.sh"
+    destination = "/home/todo-project/scripts/entrypoint.sh"
   }
   provisioner "file" {
     source      = "../.env"
     destination = "/home/ubuntu/todo-project/.env"
+  }
+  provisioner "file" {
+    source      = "../nginx.conf"
+    destination = "/home/ubuntu/todo-project/nginx/nginx.conf"
   }
   provisioner "file" {
     source      = "../docker-compose.yml"
@@ -34,7 +39,9 @@ resource "aws_instance" "todo-instance" {
   provisioner "remote-exec" {
     inline = [
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
-	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh"
+	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh",
+	"cp /home/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
+	"bash /home/ubuntu/todo-project/scripts/run-docker.sh",
     ]
   }
 
