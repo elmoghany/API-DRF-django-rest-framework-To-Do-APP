@@ -29,7 +29,7 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/.env"
   }
   provisioner "file" {
-    source      = "./nginx/nginx.conf"
+    source      = "../nginx/nginx.conf"
     destination = "/home/ubuntu/todo-project/nginx/nginx.conf"
   }
   provisioner "file" {
