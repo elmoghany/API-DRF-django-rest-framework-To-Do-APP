@@ -41,7 +41,7 @@ resource "aws_instance" "todo-instance" {
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
 	"chmod +x /home/ubuntu/todo-project/scripts/run-docker.sh",
 	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh",
-	"cp /home/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
+	"cp /home/ubuntu/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
 	"bash /home/ubuntu/todo-project/scripts/run-docker.sh",
     ]
   }
