@@ -1,1 +1,1 @@
-docker-compose -f scripts/docker-compose.yml up -d
+docker-compose -f /home/ubuntu/todo-project/scripts/docker-compose.yml up -d
