@@ -25,6 +25,10 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/scripts/entrypoint.sh"
   }
   provisioner "file" {
+    source      = "../scripts/run-docker.sh"
+    destination = "/home/ubuntu/todo-project/scripts/run-docker.sh"
+  }
+  provisioner "file" {
     source      = "../.env"
     destination = "/home/ubuntu/todo-project/.env"
   }
@@ -41,7 +45,7 @@ resource "aws_instance" "todo-instance" {
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
 	"chmod +x /home/ubuntu/todo-project/scripts/run-docker.sh",
 	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh",
-	"cp /home/ubuntu/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
+	"sudo cp /home/ubuntu/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
 	"bash /home/ubuntu/todo-project/scripts/run-docker.sh",
     ]
   }
