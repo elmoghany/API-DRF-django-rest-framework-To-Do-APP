@@ -3,15 +3,12 @@ FROM python:3.12.4-slim-bullseye
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /home/ubuntu/todo-project
+WORKDIR /home/ubuntu/todo-project/todo_project
 
-COPY ../requirements.txt .
+COPY . .
 
 RUN pip install -r requirements.txt
 
-COPY ../scripts ./scripts
-COPY ../nginx ./nginx
-COPY ../todo_project ./todo_project
 
 
 #CMD ["python", "todo_project/manage.py", "runserver", "0.0.0.0:8000"]
