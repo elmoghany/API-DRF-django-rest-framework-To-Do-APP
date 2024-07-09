@@ -27,7 +27,7 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/scripts/"
   }
   provisioner "file" {
-    source      = "../.env"
+    source      = "../todo_project/.env"
     destination = "/home/ubuntu/todo-project/todo_project/.env"
   }
   provisioner "file" {
