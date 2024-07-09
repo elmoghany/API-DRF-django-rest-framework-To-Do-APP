@@ -45,11 +45,11 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/"
   }
   provisioner "file" {
-    source      = "../docker-compose.yml"
+    source      = "../todo_project/docker-compose.yml"
     destination = "/home/ubuntu/todo-project/todo_project/docker-compose.yml"
   }
   provisioner "file" {
-    source      = "../Dockerfile"
+    source      = "../todo_project/Dockerfile"
     destination = "/home/ubuntu/todo-project/todo_project/Dockerfile"
   }
   provisioner "remote-exec" {
