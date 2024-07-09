@@ -1,0 +1,29 @@
+name: todo_app
+services:
+  todo_service:
+    build: .
+    #volumes:
+    #  - .:/home/todo-project
+    ports:
+      - "8000:8000"
+    image: elmoghany/todo_app:v1.6-django-docker-compose
+    container_name: todo_django
+    #command: ["python", "todo_project/manage.py", "runserver", "0.0.0.0:8000"]
+    command: gunicorn --workers 3 --bind 0.0.0.0:8000 todo_project.wsgi:application
+
+  nginx:
+    image: nginx:1.24-alpine3.17-slim
+    ports:
+      - "8001:80"
+    #volumes:
+      #- /home/todo-project/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      #- /home/todo-project/todo_project/static/:/home/todo-project/todo_project/static/
+    depends_on:
+      - todo_service
+    networks:
+      - todo_app_network
+
+networks:
+  todo_app_network:
+    driver: bridge
+

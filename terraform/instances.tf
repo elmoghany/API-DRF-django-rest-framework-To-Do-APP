@@ -37,8 +37,20 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/nginx/nginx.conf"
   }
   provisioner "file" {
+    source      = "../requirements.txt"
+    destination = "/home/ubuntu/todo-project/requirements.txt"
+  }
+  provisioner "file" {
+    source      = "../todo_project"
+    destination = "/home/ubuntu/todo-project/"
+  }
+  provisioner "file" {
     source      = "../docker-compose.yml"
-    destination = "/home/ubuntu/todo-project/scripts/docker-compose.yml"
+    destination = "/home/ubuntu/todo-project/todo_project/docker-compose.yml"
+  }
+  provisioner "file" {
+    source      = "../Dockerfile"
+    destination = "/home/ubuntu/todo-project/todo_project/Dockerfile"
   }
   provisioner "remote-exec" {
     inline = [

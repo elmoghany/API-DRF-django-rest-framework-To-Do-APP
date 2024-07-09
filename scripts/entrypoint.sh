@@ -17,8 +17,8 @@ sudo apt-get install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-mkdir -p /home/ubuntu/todo-project
-cd /home/ubuntu/todo-project
+mkdir -p /home/ubuntu/todo-project/todo_project
+cd /home/ubuntu/todo-project/todo_project
 docker pull elmoghany/todo_app:v1.6-django-docker-compose
 
 #echo "version: '3.8'
