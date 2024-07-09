@@ -2,7 +2,7 @@ variable "AWS_REGION" {
   default = "us-east-1"
 }
 variable "AMI" {
-  default = "ami-0a0e5d9c7acc336f1"
+  default = "ami-04a81a99f5ec58529"
 }
 variable "PROJECT" {
   default = "todo-docker-terraform"
