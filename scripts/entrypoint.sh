@@ -1,6 +1,10 @@
 #!/bin/bash
 
 sudo apt-get update
+export DEBIAN_FRONTEND=noninteractive
+echo 'unattended-upgrades unattended-upgrades/enable_auto_updates boolean true' | sudo debconf-set-selections
+sudo apt-get install python3-pip -y
+pip install -r /home/ubuntu/todo-project/requirements.txt
 sudo apt-get install -y docker.io
 
 sudo systemctl start docker
@@ -20,9 +24,6 @@ sudo systemctl enable nginx
 mkdir -p /home/ubuntu/todo-project/todo_project
 cd /home/ubuntu/todo-project/todo_project
 docker pull elmoghany/todo_app:v1.8-django
-
-sudo apt install python3-pip -y
-pip install -r /home/ubuntu/todo-project/todo_project/requirements.txt
 
 #echo "version: '3.8'
 #services:

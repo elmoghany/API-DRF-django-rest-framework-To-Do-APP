@@ -39,7 +39,7 @@ resource "aws_instance" "todo-instance" {
     destination = "/home/ubuntu/todo-project/requirements.txt"
   }
   provisioner "file" {
-    source      = "../todo_project/docker-compose.yml"
+    source      = "../docker-compose.yml"
     destination = "/home/ubuntu/todo-project/docker-compose.yml"
   }
 #  provisioner "file" {
@@ -55,7 +55,12 @@ resource "aws_instance" "todo-instance" {
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
 	"chmod +x /home/ubuntu/todo-project/scripts/run-docker.sh",
 	"bash /home/ubuntu/todo-project/scripts/entrypoint.sh",
-#	"sudo cp /home/ubuntu/todo-project/nginx/nginx.conf /etc/nginx/conf.d/default.conf",
+    ]
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+    	"ls -ltr /home/ubuntu/todo-project/todo_project/",
 	"bash /home/ubuntu/todo-project/scripts/run-docker.sh",
     ]
   }
