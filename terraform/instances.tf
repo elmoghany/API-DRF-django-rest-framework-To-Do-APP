@@ -26,10 +26,10 @@ resource "aws_instance" "todo-instance" {
     source      = "../scripts/"
     destination = "/home/ubuntu/todo-project/scripts/"
   }
-#  provisioner "file" {
-#    source      = "../.env"
-#    destination = "/home/ubuntu/todo-project/todo_project/.env"
-#  }
+  provisioner "file" {
+    source      = "../.env"
+    destination = "/home/ubuntu/todo-project/todo_project/.env"
+  }
   provisioner "file" {
     source      = "../nginx/"
     destination = "/home/ubuntu/todo-project/nginx/"
