@@ -1,24 +1,38 @@
-name: todo_app
+name: todo_pp
 services:
   todo_service:
-    build: .
-    #volumes:
-    #  - .:/home/todo-project
-    #ports:
-    #  - 8001:8000
-    expose:
-      - "8000"
-    image: elmoghany/todo_app:v1.6-django-docker-compose
+    build: 
+      context: ./todo_project
+    networks:
+      - todo_app_network
+    volumes:
+      - static_volume:todo-project/static
+    ports:
+      - "8000:8000"
+    image: elmoghany/todo_app:v1.8-django
     container_name: todo_django
+    env_file:
+      - todo_project/.env
+    restart: "on-failure"
+    command: gunicorn --workers 3 --bind 0.0.0.0:8000 todo_project.wsgi:application
     #command: ["python", "todo_project/manage.py", "runserver", "0.0.0.0:8000"]
-    command: gunicorn --workers 3 -bind 0.0.0.0:8000 todo_project/todo_project.wsgi:application
+    #restart: "unless-stopped"
 
   nginx:
-    image: nginx:1.24-alpine3.17-slim
+    build: ./nginx
     ports:
       - "8001:80"
     #volumes:
-      #- /home/todo-project/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      #- /home/todo-project/todo_project/static/:/home/todo-project/todo_project/static/
+      - static_volume:todo_project/static
     depends_on:
       - todo_service
+    networks:
+      - todo_app_network
+    restart: "on-failure"
+
+networks:
+  todo_app_network:
+    driver: bridge
+
+volume:
+  static_volume:
