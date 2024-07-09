@@ -21,6 +21,9 @@ mkdir -p /home/ubuntu/todo-project/todo_project
 cd /home/ubuntu/todo-project/todo_project
 docker pull elmoghany/todo_app:v1.7-django-docker-compose
 
+sudo apt install python3-pip -y
+pip install -r /home/ubuntu/todo-project/todo_project/requirements.txt
+
 #echo "version: '3.8'
 #services:
 #  todo_service:

@@ -1,4 +1,4 @@
-name: todo_app
+name: todo_pp
 services:
   todo_service:
     build: .
@@ -12,7 +12,7 @@ services:
     command: gunicorn --workers 3 --bind 0.0.0.0:8000 todo_project.wsgi:application
 
   nginx:
-    build: ../nginx
+    build: .
     image: nginx:1.24-alpine3.17-slim
     ports:
       - "8001:80"
