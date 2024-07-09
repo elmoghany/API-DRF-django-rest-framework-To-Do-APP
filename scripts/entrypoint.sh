@@ -19,7 +19,10 @@ sudo systemctl enable nginx
 
 mkdir -p /home/ubuntu/todo-project/todo_project
 cd /home/ubuntu/todo-project/todo_project
-docker pull elmoghany/todo_app:v1.6-django-docker-compose
+docker pull elmoghany/todo_app:v1.8-django
+
+sudo apt install python3-pip -y
+pip install -r /home/ubuntu/todo-project/todo_project/requirements.txt
 
 #echo "version: '3.8'
 #services:
