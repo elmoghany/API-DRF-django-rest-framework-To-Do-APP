@@ -73,22 +73,3 @@ resource "aws_instance" "todo-instance" {
     timeout     = "10m"
   }
 }
-
-#  provisioner "remote-exec" {
-#    inline = [
-#      "sudo apt-get update",
-#      "sudo apt-get install -y docker.io",
-#      "sudo systemctl start docker",
-#      "sudo systemctl enable docker",
-#      "sudo usermod -aG docker ubuntu",
-#      "sudo curl -L "https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose",
-#      "sudo chmod +x /usr/local/bin/docker-compose",
-#      "sudo chmod 666 /var/run/docker.sock",
-#      "mkdir -p /home/ubuntu/todo-project",
-#      "cd /home/ubuntu/todo-project",
-#      "docker pull elmoghany/todo_app:v1.3-django-docker-compose",
-#     "docker run -d -p 8001:8000 elmoghany/todo_app:v1.3-django-docker-compose"
-#      "docker compose up -d"
-#    ]
-#  }
-
