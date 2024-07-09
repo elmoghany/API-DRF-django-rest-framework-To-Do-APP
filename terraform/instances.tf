@@ -42,14 +42,10 @@ resource "aws_instance" "todo-instance" {
     source      = "../docker-compose.yml"
     destination = "/home/ubuntu/todo-project/docker-compose.yml"
   }
-#  provisioner "file" {
-#    source      = "../todo_project/Dockerfile"
-#    destination = "/home/ubuntu/todo-project/todo_project/Dockerfile"
-#  }
-#  provisioner "file" {
-#    source      = "../todo_project/"
-#    destination = "/home/ubuntu/todo-project/todo_project/"
-#  }
+  provisioner "file" {
+    source      = "../todo_project/"
+    destination = "/home/ubuntu/todo-project/todo_project/"
+  }
   provisioner "remote-exec" {
     inline = [
 	"chmod +x /home/ubuntu/todo-project/scripts/entrypoint.sh",
